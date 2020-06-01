@@ -1,4 +1,4 @@
-Waddles-CLI - Backup Script for Zimbra OSE
+Waddles-CLI - Backup Tool for E-mail services
 =========
 
 Waddles-CLI is a reliable tool for mail backup in general. Using API services, it will download the content locally and save inside your local storage. Waddles-CLI is part of a bigger solution called Waddles - the Zmbackup next-gen, which will solve most of the issues presented but the first one, but we couldn't solve because of how limited is Bash Shell script.
