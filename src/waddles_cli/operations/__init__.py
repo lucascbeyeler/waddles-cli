@@ -1,0 +1,1 @@
+from waddles_cli.operations.version import version
