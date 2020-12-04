@@ -1,7 +1,7 @@
 from argparse import ArgumentParser
 
-from waddles_cli.constants.information import WaddlesInfo
 from waddles_cli import operations
+from waddles_cli.constants.information import WaddlesInfo
 
 main_parser = ArgumentParser(
     prog="waddles_cli",
@@ -13,3 +13,11 @@ sub_parser = main_parser.add_subparsers()
 # Version
 version_parser = sub_parser.add_parser("version", description="Return the status of the product")
 version_parser.set_defaults(func=operations.version)
+
+# Show
+show_parser = sub_parser.add_parser("show", description="Used as a debug tool - return the values used as config")
+show_sub_parser = show_parser.add_subparsers()
+
+# Show all
+show_all = show_sub_parser.add_parser("all", description="Return all the configs applied to this CLI tool")
+show_all.set_defaults(func=operations.show_all)
