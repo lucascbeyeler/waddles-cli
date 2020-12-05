@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 
 @requires_config
-def show_all(config_output: Union[config.ConfigLoader, config.Database]):
+def show(config_output: Union[config.ConfigLoader, config.Database]):
     """ Return the active config for this user.
 
     :param config_output: All the config values available
