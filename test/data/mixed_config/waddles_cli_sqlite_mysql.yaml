@@ -1,0 +1,5 @@
+database:
+    server_type: SQLite
+    database_name: blathers
+    username: isabelle
+    password: doom_eternal

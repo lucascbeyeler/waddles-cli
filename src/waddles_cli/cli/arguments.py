@@ -15,7 +15,7 @@ version_parser = sub_parser.add_parser("version", description="Return the status
 version_parser.set_defaults(func=operations.version)
 
 # Show
-show_parser = sub_parser.add_parser("show", description="Used as a debug tool - return the values used as config")
+show_parser = sub_parser.add_parser("show", description="Used as a debug tool - return the values used as global_config")
 show_parser.add_argument("option", nargs="?", default="all",
-                         help="Define which section of the config you want to see - all for all the configs")
+                         help="Define which section of the global_config you want to see - all for all the configs")
 show_parser.set_defaults(func=operations.show)

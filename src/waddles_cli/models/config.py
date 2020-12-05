@@ -3,9 +3,10 @@ from dataclasses import dataclass
 from jsonschema import validate
 
 from waddles_cli.helpers.file_manipulation import yaml_safe_load
+from waddles_cli.helpers.utils import merge_two_dictionaries
 
 # Config file path
-SCHEMA_PATH = "waddles_cli/schemas/config.yaml"
+SCHEMA_PATH = "waddles_cli/schemas/global_config.yaml"
 LOCAL_CONFIG_PATH = "~/.waddles_cli"
 GENERAL_CONFIG_PATH = "/etc/waddles/waddles_cli"
 
@@ -37,20 +38,21 @@ class ConfigLoader:
         self.database = Database(**config.get("database"))
         self.dict_object = config
 
-    def __get_configs__(self) -> dict:
-        """ Retrieve and build the active config. The active config is a mix of what is inside ".waddles_cli" and
+    @staticmethod
+    def __get_configs__() -> dict:
+        """ Retrieve and build the active global_config. The active global_config is a mix of what is inside ".waddles_cli" and
             "/etc/waddles/waddles_cli".
 
-        :return: The Waddles config
+        :return: The Waddles global_config
         """
         local_config = yaml_safe_load(path_to_file=LOCAL_CONFIG_PATH)
         general_config = yaml_safe_load(path_to_file=GENERAL_CONFIG_PATH)
-        return {**general_config, **local_config}
+        return merge_two_dictionaries(object_1=general_config, object_2=local_config)
 
     def __validate__(self) -> dict:
-        """ Validate if the active config is valid or not.
+        """ Validate if the active global_config is valid or not.
 
-        :return: The Waddles config
+        :return: The Waddles global_config
         """
         schema = yaml_safe_load(path_to_file=SCHEMA_PATH)
         config = self.__get_configs__()

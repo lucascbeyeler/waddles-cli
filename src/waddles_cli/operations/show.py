@@ -12,9 +12,9 @@ if TYPE_CHECKING:
 
 @requires_config
 def show(config_output: Union[config.ConfigLoader, config.Database]):
-    """ Return the active config for this user.
+    """ Return the active global_config for this user.
 
-    :param config_output: All the config values available
+    :param config_output: All the global_config values available
     """
     for config_key, config_value in config_output.dict_object.items():
         print(f"Returning the configured values for {config_key}".format(config_key=config_key.capitalize()))
