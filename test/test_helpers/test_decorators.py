@@ -2,11 +2,21 @@ import pytest
 
 from waddles_cli.helpers import decorators
 
-from mocks.config_data import GlobalDataConfigOutput
+
+@pytest.mark.parametrize("content",["database"])
+def test_requires_config_with_content(content):
+
+    @decorators.requires_config
+    def test(_):
+        return True
+
+    assert test(inner_content=content)
 
 
-@pytest.mark.parametrize("content, intended_output",(
-        ("all", GlobalDataConfigOutput),
-))
-def test_requires_config(content, intended_output):
-    pass
+def test_requires_config_without_content():
+
+    @decorators.requires_config
+    def test(_):
+        return True
+
+    assert test()

@@ -57,7 +57,5 @@ class ConfigLoader:
         """
         config = self.__get_configs__()
         schema = yaml_safe_load(path_to_file=SCHEMA_PATH)
-        print(config)
-        print(schema)
         validate(instance=config, schema=schema)
         return config

@@ -18,11 +18,12 @@ def requires_config(function: Callable, content: str = None):
             pass
     """
 
-    def wrapper():
+    def wrapper(inner_content: str = None):
+        con = inner_content or content
         config = ConfigLoader()
-        if content:
-            function(getattr(config, content))
+        if con:
+            return function(getattr(config, con))
         else:
-            function(config)
+            return function(config)
 
     return wrapper
