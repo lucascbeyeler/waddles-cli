@@ -1,0 +1,10 @@
+###### External dependencies ######
+PyYAML
+jsonschema
+prettytable
+pyparsing
+
+###### Test dependencies ######
+pytest
+pytest-cov
+pylint
