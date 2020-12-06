@@ -15,4 +15,4 @@ jobs:
                 pip install -r requirements.txt
             - name: Analysing the code with Pytest
               run: |
-                ptest --cov-report=term-missing --cov=src/waddles_cli test/
+                pytest --cov-report=term-missing --cov=src/waddles_cli test/
