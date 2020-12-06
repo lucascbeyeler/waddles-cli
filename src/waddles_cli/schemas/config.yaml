@@ -3,49 +3,50 @@ title: Waddles Config Schema
 type: object
 properties:
     database:
-        $ref: #/definitions/database
-
-definitions:
-    database:
-        type: object
-        description: Properties related to database - used to read and write information about Waddles.
-        anyOf:
-            -   properties:
-                    server_type:
-                        const: SQLite
-                    required:
-                        - server_type
-                        - database_name
-            -   properties:
-                    server_type:
-                        const: MySQL
-                    required:
-                        - server_type
-                        - address
-                        - port
-                        - database_name
-                        - username
-                        - password
+        $ref: "#/database"
+required:
+    - database
+additionalProperties: false
+database:
+    description: Properties related to database - used to read and write information about Waddles.
+    type: object
+    additionalProperties: false
+    properties:
+        server_type:
+            type: string
+            description: The type of database you want to use
+            enum:
+                - SQLite
+                - MySQL
+        database_name:
+            type: string
+            descirption: The name of the database used to store Waddles information
+        address:
+            type: string
+            description: IP or DNS address where is located the database service you want to store data
+        port:
+            type: integer
+            description: The port used to communicate with this database - leave empty for default value
+        username:
+            type: string
+            description: Login used to authenticate to this server
+        password:
+            type: string
+            description: Password used to authenticate to this server
+    if:
         properties:
             server_type:
-                type: string
-                description: The type of database you want to use
-                enum:
-                    - SQLite
-                    - MySQL
-            address:
-                type: string
-                description: IP or DNS address where is located the database service you want to store data
-                pattern: TBC
-            port:
-                type: integer
-                description: The port used to communicate with this database - leave empty for default value
-            username:
-                type: string
-                description: Login used to authenticate to this server
-            password:
-                type: string
-                description: Password used to authenticate to this server
-            database_name:
-                type: string
-                descirption: The name of the database used to store Waddles information
+                const:
+                    type: MySQL
+    then:
+        required:
+            - server_type
+            - database_name
+            - address
+            - port
+            - username
+            - password
+    else:
+        required:
+            - server_type
+            - database_name

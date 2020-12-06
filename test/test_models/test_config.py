@@ -1,5 +1,7 @@
 import pytest
 
+from jsonschema import ValidationError
+
 from waddles_cli.models import config
 
 from mocks import config_data
@@ -29,7 +31,7 @@ class TestDatabase:
         ("", config_data.GlobalDataConfigPath.SQLITE, config_data.GlobalDataConfigOutput.SQLITE),
         (config_data.GlobalDataConfigPath.MYSQL, "", config_data.GlobalDataConfigOutput.MYSQL),
 ))
-class TestConfigLoader:
+class TestConfigLoaderSuccess:
 
     @pytest.fixture(scope="function", autouse=True)
     def __setup__(self, global_config_path, local_config_path):
@@ -40,5 +42,15 @@ class TestConfigLoader:
     def test_get_configs(self, mixed_configs):
         assert self.config.dict_object == mixed_configs
 
-    def test_validate_success(self):
-        pass
+
+@pytest.mark.parametrize("config_path",(config_data.BadDataConfigPath.SQLITE,config_data.BadDataConfigPath.MYSQL, ""))
+class TestConfigLoaderFailure:
+
+    @pytest.fixture(scope="function", autouse=True)
+    def __setup__(self, config_path):
+        config.LOCAL_CONFIG_PATH = config_path
+        config.GENERAL_CONFIG_PATH = config_path
+
+    def test_get_configs(self):
+        with pytest.raises(ValidationError):
+            config.ConfigLoader()

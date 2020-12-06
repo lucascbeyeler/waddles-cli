@@ -1,0 +1,3 @@
+database:
+    server_type: SQLite
+    databaxe_name: blathers

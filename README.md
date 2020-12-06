@@ -5,7 +5,7 @@ Waddles-CLI is a reliable tool for mail backup in general. Using API services, i
 
 [![Zimbra Version](https://img.shields.io/badge/Zimbra%20OSE-8.8.15-orange.svg)](https://www.zimbra.com/downloads/zimbra-collaboration-open-source/)
 ![Branch](https://img.shields.io/badge/Branch-Development-yellow.svg)
-![Release](https://img.shields.io/badge/Release-1.0.0-green.svg)
+![Release](https://img.shields.io/badge/Release-0.0.1-red.svg)
 
 Features
 ------------
@@ -21,7 +21,7 @@ Features
 
 Requirements
 ------------
-* Python 3.7 or above;
+* Python 3.8 or above;
 * MySQL Server 5.7 or SQLite3;
 
 Installation

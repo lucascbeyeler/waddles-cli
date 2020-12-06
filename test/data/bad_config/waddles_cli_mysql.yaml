@@ -1,0 +1,7 @@
+database:
+    server_type: NookInc
+    database_name: nook_inc
+    username: tom_nook
+    password: bells
+    address: 192.168.0.1
+    port: 5152

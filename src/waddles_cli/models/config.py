@@ -4,9 +4,10 @@ from jsonschema import validate
 
 from waddles_cli.helpers.file_manipulation import yaml_safe_load
 from waddles_cli.helpers.utils import merge_two_dictionaries
+from waddles_cli.constants.keywords import EXECUTION_PATH
 
 # Config file path
-SCHEMA_PATH = "waddles_cli/schemas/global_config.yaml"
+SCHEMA_PATH = EXECUTION_PATH + "src/waddles_cli/schemas/config.yaml"
 LOCAL_CONFIG_PATH = "~/.waddles_cli"
 GENERAL_CONFIG_PATH = "/etc/waddles/waddles_cli"
 
@@ -54,7 +55,9 @@ class ConfigLoader:
 
         :return: The Waddles global_config
         """
-        schema = yaml_safe_load(path_to_file=SCHEMA_PATH)
         config = self.__get_configs__()
+        schema = yaml_safe_load(path_to_file=SCHEMA_PATH)
+        print(config)
+        print(schema)
         validate(instance=config, schema=schema)
         return config
