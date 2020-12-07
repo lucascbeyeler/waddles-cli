@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from jsonschema import validate
+import jsonschema
 
 from waddles_cli.constants.keywords import EXECUTION_PATH
 from waddles_cli.helpers.file_manipulation import yaml_safe_load
@@ -57,5 +57,5 @@ class ConfigLoader:
         """
         config = self.__get_configs__()
         schema = yaml_safe_load(path_to_file=SCHEMA_PATH)
-        validate(instance=config, schema=schema)
+        jsonschema.validate(instance=config, schema=schema)
         return config
