@@ -15,7 +15,7 @@ jobs:
                 pip install -r requirements.txt
             - name: Copying config files
               run: |
-                copy src/waddles_cli/config_files/waddles_cli ~/.waddles_cli
+                cp src/waddles_cli/config_files/waddles_cli ~/.waddles_cli
             - name: Analysing the code with Pytest
               run: |
                 export PYTHONPATH="src"
