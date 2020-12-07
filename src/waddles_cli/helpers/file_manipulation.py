@@ -1,4 +1,4 @@
-from yaml import safe_load
+import yaml
 
 
 def yaml_safe_load(path_to_file: str) -> dict:
@@ -10,6 +10,6 @@ def yaml_safe_load(path_to_file: str) -> dict:
     """
     try:
         with open(path_to_file, "r") as fd:
-            return safe_load(fd.read())
+            return yaml.safe_load(fd.read())
     except FileNotFoundError:
         return {}

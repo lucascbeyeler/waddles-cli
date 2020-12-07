@@ -2,22 +2,23 @@ import pytest
 from unittest import mock
 
 from waddles_cli.helpers import decorators
+from mocks.config_data import GlobalDataConfigOutput
 
 
 @pytest.mark.parametrize("content", ["database"])
-@mock.patch("jsonschema.validate", mock.Mock)
 def test_requires_config_with_content(content):
-    @decorators.requires_config
-    def test(_):
-        return True
+    with mock.patch("yaml.safe_load", return_value=GlobalDataConfigOutput.MYSQL):
+        @decorators.requires_config
+        def test(_):
+            return True
 
-    assert test(inner_content=content)
+        assert test(inner_content=content)
 
 
-@mock.patch("jsonschema.validate", mock.Mock)
 def test_requires_config_without_content():
-    @decorators.requires_config
-    def test(_):
-        return True
+    with mock.patch("yaml.safe_load", return_value=GlobalDataConfigOutput.MYSQL):
+        @decorators.requires_config
+        def test(_):
+            return True
 
-    assert test()
+        assert test()
