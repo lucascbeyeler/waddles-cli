@@ -1,9 +1,0 @@
-database:
-    server_type: SQLite
-    database_name: nook_inc
-
-# Extra parameters
-#   address: 127.0.0.1
-#   username: tom_nook
-#   password: bells
-#   port: 8080

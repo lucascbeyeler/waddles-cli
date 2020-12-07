@@ -7,7 +7,7 @@ from mocks.config_data import GlobalDataConfigOutput
 
 @pytest.mark.parametrize("content", ["database"])
 def test_requires_config_with_content(content):
-    with mock.patch("yaml.safe_load", return_value=GlobalDataConfigOutput.MYSQL):
+    with mock.patch("waddles_cli.models.config.yaml_safe_load",side_effect=[GlobalDataConfigOutput.MYSQL, GlobalDataConfigOutput.MYSQL, {}]):
         @decorators.requires_config
         def test(_):
             return True
@@ -16,7 +16,7 @@ def test_requires_config_with_content(content):
 
 
 def test_requires_config_without_content():
-    with mock.patch("yaml.safe_load", return_value=GlobalDataConfigOutput.MYSQL):
+    with mock.patch("waddles_cli.models.config.yaml_safe_load", side_effect=[GlobalDataConfigOutput.MYSQL, GlobalDataConfigOutput.MYSQL, {}]):
         @decorators.requires_config
         def test(_):
             return True
