@@ -6,7 +6,7 @@ from prettytable import PrettyTable
 
 from waddles_cli.helpers.decorators import requires_config
 
-if TYPE_CHECKING:
+if TYPE_CHECKING:  # pragma: no cover
     from waddles_cli.models import config
 
 
@@ -22,3 +22,4 @@ def show(config_output: Union[config.ConfigLoader, config.Database]):
         for key, value in config_value.items():
             table.add_row([key, value])
         print(table)
+    return True

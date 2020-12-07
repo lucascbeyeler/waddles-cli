@@ -1,0 +1,12 @@
+[run]
+branch = True
+
+omit =
+    src/waddles_cli/constants/*.py
+    src/waddles_cli/cli/*.py
+    src/waddles_cli/*/__init__.py
+    src/waddles_cli/operations/version.py
+
+[paths]
+source =
+    src/
