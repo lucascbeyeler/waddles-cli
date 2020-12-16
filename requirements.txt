@@ -3,6 +3,7 @@ PyYAML
 jsonschema
 prettytable
 pyparsing
+sqlalchemy
 
 ###### Test dependencies ######
 pytest

@@ -4,8 +4,14 @@ type: object
 properties:
     database:
         $ref: "#/database"
+    backup_info:
+        $ref: "#/backup_info"
+    zimbra:
+        $ref: "#/zimbra"
 required:
     - database
+    - zimbra
+    - backup_info
 additionalProperties: false
 database:
     description: Properties related to database - used to read and write information about Waddles.
@@ -16,7 +22,7 @@ database:
             type: string
             description: The type of database you want to use
             enum:
-                - SQLite
+                - sqlite
                 - MySQL
         database_name:
             type: string
@@ -50,3 +56,39 @@ database:
         required:
             - server_type
             - database_name
+backup_info:
+    description: Properties related to Backup, like where and how to store
+    type: object
+    additionalProperties: false
+    required:
+        - storage_path
+    properties:
+        storage_path:
+            type: string
+            description: The type of database you want to use
+zimbra:
+    description: Properties related to Backup, like where and how to store
+    type: object
+    additionalProperties: false
+    required:
+        - server_address
+        - server_port
+        - admin_username
+        - admin_password
+        - webproto
+    properties:
+        server_address:
+            type: string
+            description: The type of database you want to use
+        server_port:
+            type: integer
+            description: The type of database you want to use
+        admin_username:
+            type: string
+            description: The type of database you want to use
+        admin_password:
+            type: string
+            description: The type of database you want to use
+        webproto:
+            type: string
+            description: The type of database you want to use

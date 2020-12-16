@@ -1,4 +1,5 @@
 from typing import Callable
+from argparse import Namespace
 
 from waddles_cli.models.config import ConfigLoader
 
@@ -18,12 +19,18 @@ def requires_config(function: Callable, content: str = None):
             pass
     """
 
-    def wrapper(inner_content: str = None):
+    def wrapper(inner_content: str = None, params: Namespace = None):
         con = inner_content or content
         config = ConfigLoader()
-        if con:
-            return function(getattr(config, con))
+        if params:
+            if con:
+                return function(params=params, config_output=getattr(config, con))
+            else:
+                return function(params=params, config_output=config)
         else:
-            return function(config)
+            if con:
+                return function(config_output=getattr(config, con))
+            else:
+                return function(config_output=config)
 
     return wrapper

@@ -23,6 +23,22 @@ class Database:
     password: str = None
 
 
+# Backup info options
+@dataclass
+class BackupInfo:
+    storage_path: str
+
+
+# Zimbra options
+@dataclass
+class Zimbra:
+    server_address: str
+    server_port: str
+    admin_username: str
+    admin_password: str
+    webproto: str
+
+
 # The loader for configs
 class ConfigLoader:
     database: Database
@@ -37,6 +53,8 @@ class ConfigLoader:
         :param config: a valid YAML file
         """
         self.database = Database(**config.get("database"))
+        self.backup_info = BackupInfo(**config.get("backup_info"))
+        self.zimbra = Zimbra(**config.get("zimbra"))
         self.dict_object = config
 
     @staticmethod

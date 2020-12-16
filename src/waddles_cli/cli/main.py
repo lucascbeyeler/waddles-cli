@@ -8,8 +8,9 @@ This is where the CLI will be called.
 """
 if __name__ == "__main__":
     args = main_parser.parse_args()
+    args.func(params=args)
     try:
-        args.func(args)
+        args.func(params=args)
     except TypeError:
         args.func()
     except AttributeError:

@@ -19,3 +19,10 @@ show_parser = sub_parser.add_parser("show", description="Used as a debug tool - 
 show_parser.add_argument("option", nargs="?", default="all",
                          help="Define which section of the global_config you want to see - all for all the configs")
 show_parser.set_defaults(func=operations.show)
+
+# Download
+download_parser = sub_parser.add_parser("download", description="Download a single or multiple packages")
+download_parser.add_argument("option", nargs="?", default="all",
+                             help="Define if you want to download a single or all the accounts")
+download_parser.add_argument("--username", "-u", help="Username you want to download")
+download_parser.set_defaults(func=operations.download)
