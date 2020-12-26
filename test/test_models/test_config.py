@@ -43,7 +43,7 @@ class TestConfigLoaderSuccess:
         assert self.config.dict_object == mixed_configs
 
 
-@pytest.mark.parametrize("config_path",(config_data.BadDataConfigPath.SQLITE,config_data.BadDataConfigPath.MYSQL, ""))
+@pytest.mark.parametrize("config_path",(config_data.BadDataConfigPath.SQLITE,config_data.BadDataConfigPath.MYSQL,config_data.BadDataConfigPath.PROTO,config_data.BadDataConfigPath.PORT, ""))
 class TestConfigLoaderFailure:
 
     @pytest.fixture(scope="function", autouse=True)

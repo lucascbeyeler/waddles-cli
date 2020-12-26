@@ -1,0 +1,17 @@
+database:
+    server_type: MySQL
+    database_name: nook_inc
+    username: isabelle
+    password: doom_eternal
+    address: 192.168.0.1
+    port: 5152
+
+backup_info:
+    storage_path: /tmp/emailsgoherethree
+
+zimbra:
+    server_address: 192.168.0.3
+    server_port: 66997
+    admin_username: sonic
+    admin_password: gottagofast11
+    webproto: https

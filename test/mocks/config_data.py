@@ -29,6 +29,8 @@ class BadDataConfigPath:
 
     MYSQL = EXECUTION_PATH + "test/data/bad_config/waddles_cli_mysql.yaml"
     SQLITE = EXECUTION_PATH + "test/data/bad_config/waddles_cli_sqlite.yaml"
+    PORT = EXECUTION_PATH + "test/data/bad_config/server_port_mysql.yaml"
+    PROTO = EXECUTION_PATH + "test/data/bad_config/web_proto_sqlite.yaml"
 
 class GlobalDataConfigOutput:
 
@@ -54,3 +56,5 @@ class BadDataConfigOutput:
 
     MYSQL = safe_load(stream=open(BadDataConfigPath.MYSQL))
     SQLITE = safe_load(stream=open(BadDataConfigPath.SQLITE))
+    PORT = safe_load(stream=open(BadDataConfigPath.PORT))
+    PROTO = safe_load(stream=open(BadDataConfigPath.PROTO))

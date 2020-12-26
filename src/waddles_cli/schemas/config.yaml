@@ -83,6 +83,8 @@ zimbra:
         server_port:
             type: integer
             description: The type of database you want to use
+            minimum: 1
+            maximum: 65555
         admin_username:
             type: string
             description: The type of database you want to use
@@ -92,3 +94,6 @@ zimbra:
         webproto:
             type: string
             description: The type of database you want to use
+            enum:
+                - http
+                - https
