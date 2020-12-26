@@ -6,7 +6,7 @@ from waddles_cli.helpers.decorators import requires_config
 from waddles_cli.constants.keywords import BACKUP_PATH
 from waddles_cli.helpers.file_manipulation import write_file
 
-from waddles_cli.lib.zimbra.models.session import ZimbraUserAPI
+from waddles_cli.libraries.zimbra.models.session import ZimbraUserAPI
 
 if TYPE_CHECKING:  # pragma: no cover
     from waddles_cli.models import config
@@ -40,5 +40,4 @@ def download_single(params: Namespace, config_output: config.ConfigLoader) -> bo
     output = zimbra_connection.get_account_tgz()
     path = BACKUP_PATH.format(path=config_output.backup_info.storage_path, username=params.username)
     write_file(request_output=output, backup_path=path)
-
     return True
