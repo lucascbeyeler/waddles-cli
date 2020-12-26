@@ -5,3 +5,13 @@ database:
     password: bells
     address: 192.168.0.1
     port: 5152
+
+backup_info:
+    storage_path: /tmp/emailsgoherefour
+
+zimbra:
+    server_address: 192.168.0.4
+    server_port: 6932
+    admin_username: euacho
+    admin_password: queelefezerrado256
+    webproto: https

@@ -4,6 +4,7 @@ jsonschema
 prettytable
 pyparsing
 sqlalchemy
+requests
 
 ###### Test dependencies ######
 pytest

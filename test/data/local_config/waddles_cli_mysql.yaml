@@ -1,3 +1,13 @@
 database:
     username: isabelle
     password: doom_eternal
+
+backup_info:
+    storage_path: /tmp/emailsgoherethree
+
+zimbra:
+    server_address: 192.168.0.3
+    server_port: 5896
+    admin_username: sonic
+    admin_password: gottagofast11
+    webproto: https

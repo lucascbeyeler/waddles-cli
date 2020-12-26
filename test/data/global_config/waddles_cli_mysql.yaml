@@ -5,3 +5,13 @@ database:
     password: bells
     address: 192.168.0.1
     port: 5152
+
+backup_info:
+    storage_path: /tmp/emailsgohereone
+
+zimbra:
+    server_address: 192.168.0.1
+    server_port: 7071
+    admin_username: sayaka
+    admin_password: "011037"
+    webproto: https

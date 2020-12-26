@@ -1,3 +1,13 @@
 database:
     server_type: sqlite
     database_name: blathers
+
+backup_info:
+    storage_path: /tmp/emailsgoheretwo
+
+zimbra:
+    server_address: 192.168.0.2
+    server_port: 2432
+    admin_username: omizu
+    admin_password: nondekudasai
+    webproto: https
