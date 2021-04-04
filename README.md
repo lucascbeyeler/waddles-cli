@@ -1,6 +1,8 @@
 Waddles-CLI - Backup Tool for E-mail services
 =========
 
+** WARNING: The project is blocked until further notice - Zimbra API does not work anymore for backup, which makes pointless proceed developing Waddles**
+
 Waddles-CLI is a reliable tool for mail backup in general. Using API services, it will download the content locally and save inside your local storage. Waddles-CLI is part of a bigger solution called Waddles - the Zmbackup next-gen, which will solve most of the issues presented but the first one, but we couldn't solve because of how limited is Bash Shell script.
 
 [![Zimbra Version](https://img.shields.io/badge/Zimbra%20OSE-8.8.15-orange.svg)](https://www.zimbra.com/downloads/zimbra-collaboration-open-source/)
